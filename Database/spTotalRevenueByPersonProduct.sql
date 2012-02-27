@@ -26,8 +26,11 @@ BEGIN
         on soi.prod_id = p.id
     left outer join employee e
         on so.sales_rep = e.emp_id
+    inner join department d
+        on e.dept_id = d.dept_id
     --where so.order_date between '2000-01-01 00:00:00.000' and '2000-12-31 23:59:59.999'
     where datepart(year,so.order_date) = @year
+    and d.dept_name = "Domestic Sales"
     group by e.emp_fname
         , p.name
     order by e.emp_fname

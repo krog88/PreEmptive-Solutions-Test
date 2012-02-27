@@ -76,7 +76,7 @@ $(function() {
 	GAN.initGame();
 
 	// Bind to the form submit button
-	$('#GameForm').submit(function() {
+	$('#GameForm').submit(function(event) {
 		event.preventDefault();
 		var f = $('#GameForm');
 
